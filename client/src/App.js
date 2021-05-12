@@ -209,11 +209,7 @@ function App() {
                 {/* <Link   to={`/search/category/all`}><li className="header-floop-item">APPAREL</li>  </Link> */}
                 <div className="dropdown-cover">
                   <ul className="dropdown-content">
-                    {/* {categories.map((categorie)=>(
-                    <li>
-                    <Link className="name-nav" to="/dashboard">Dashboard</Link>
-                  </li>
-                ))} */}
+                  
                     {loadingCategories ? (
                       <LoadingBox></LoadingBox>
                     ) : errorCategories ? (
@@ -247,45 +243,7 @@ function App() {
           </div>
         </header>
 
-        {/* <aside className={sidebarIsOpen ? "open" : ""}>
-          <ul className="categories">
-            <li>
-              <strong>Menu</strong>
-              <button
-                onClick={() => setSidebarIsOpen(false)}
-                className="close-sidebar"
-                type="button"
-              >
-                <i className="fa fa-close"></i>
-              </button>
-            </li>
-            {loadingCategories ? (
-              <LoadingBox></LoadingBox>
-            ) : errorCategories ? (
-              <MessageBox variant="danger">{errorCategories}</MessageBox>
-            ) : (
-              categories.map((c) => (
-                <li key={c}>
-                  <Link
-                    to={`/search/category/${c}`}
-                    onClick={() => setSidebarIsOpen(false)}
-                  >
-                    {c}
-                  </Link>
-                </li>
-              ))
-            )}
-
-            <li >
-              <Link
-                to={`/search/category/all`}
-                onClick={() => setSidebarIsOpen(false)}
-              >
-               Shop
-              </Link>
-            </li>
-          </ul>
-        </aside> */}
+       
 
         <main>
           {/* <Route path="/seller/:id" component={SellerScreen}></Route> */}
