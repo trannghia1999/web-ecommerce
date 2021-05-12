@@ -2,7 +2,7 @@
   "name": "anthea",
   "type": "module",
   "version": "1.0.0",
-  "description": "Ecommerce website ",
+  "description": " ",
   "main": "index.js",
   "scripts": {
     "build": "cd client && npm install && npm run build",
