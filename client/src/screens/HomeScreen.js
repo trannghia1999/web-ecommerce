@@ -6,14 +6,14 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../actions/productActions";
-import { listTopSellers } from "../actions/userActions";
+
 import { Link } from "react-router-dom";
 
 // import Carousel from "react-bootstrap/Carousel";
 
 export default function HomeScreen() {
   const apparelcarousels = [
-    "https://glab.vn/storage/uploads/advert/5f47b8a34de8f.jpg",
+    "https://glab.vn/storage/uploads/advert/6066ad800c62c.jpg",
     "https://glab.vn/storage/uploads/advert/5f47b8a34de8f.jpg",
     
   ];
@@ -27,16 +27,11 @@ export default function HomeScreen() {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
-  const userTopSellersList = useSelector((state) => state.userTopSellersList);
-  const {
-    loading: loadingSellers,
-    error: errorSellers,
-    users: sellers,
-  } = userTopSellersList;
+ 
 
   useEffect(() => {
     dispatch(listProducts({}));
-    dispatch(listTopSellers());
+    
   }, [dispatch]);
  
   return (
@@ -44,14 +39,11 @@ export default function HomeScreen() {
       <div>
     
         <>
-          {/* {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>} */}
+         
           <Carousel  showArrows autoPlay showThumbs={false}>
             {apparelcarousels.map((carousel,index) => (
               <div  key={index}>
-                {/* <Link to={`/seller/${seller._id}`}>
-                  <img src={seller.seller.logo} alt={seller.seller.name} />
-                  <p className="legend">{seller.seller.name}</p>
-                </Link> */}
+              
                   <Link to='/'>
                   <img    src={carousel}  />
                   
@@ -98,14 +90,11 @@ export default function HomeScreen() {
       <div>
     
     <>
-      {/* {sellers.length === 0 && <MessageBox>No Seller Found</MessageBox>} */}
+     
       <Carousel  showArrows autoPlay showThumbs={false}>
         {foowearcarousels.map((foowearcarousel,index) => (
           <div  key={index}>
-            {/* <Link to={`/seller/${seller._id}`}>
-              <img src={seller.seller.logo} alt={seller.seller.name} />
-              <p className="legend">{seller.seller.name}</p>
-            </Link> */}
+       
               <Link to='/'>
               <img   src={foowearcarousel}  />
               

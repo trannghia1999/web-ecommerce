@@ -14,7 +14,7 @@ export default function RegisterScreen(props) {
   const redirect = props.location.search
     ? props.location.search.split('=')[1]
     : '/';
-
+  
   const userRegister = useSelector((state) => state.userRegister);
   const { userInfo, loading, error } = userRegister;
 
@@ -22,14 +22,16 @@ export default function RegisterScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      alert('Password and confirm password are not match');
+      alert('mật khẩu không trùng');
     } else {
       dispatch(register(name, email, password));
     }
   };
+  
   useEffect(() => {
     if (userInfo) {
       props.history.push(redirect);
+    
     }
   }, [props.history, redirect, userInfo]);
   return (
@@ -45,7 +47,7 @@ export default function RegisterScreen(props) {
           <input
             type="text"
             id="name"
-            placeholder="Enter name"
+            placeholder=" tên"
             required
             onChange={(e) => setName(e.target.value)}
           ></input>
@@ -55,7 +57,7 @@ export default function RegisterScreen(props) {
           <input
             type="email"
             id="email"
-            placeholder="Enter email"
+            placeholder=" email"
             required
             onChange={(e) => setEmail(e.target.value)}
           ></input>
@@ -65,7 +67,7 @@ export default function RegisterScreen(props) {
           <input
             type="password"
             id="password"
-            placeholder="Enter password"
+            placeholder=" mật khẩu"
             required
             onChange={(e) => setPassword(e.target.value)}
           ></input>
@@ -75,7 +77,7 @@ export default function RegisterScreen(props) {
           <input
             type="password"
             id="confirmPassword"
-            placeholder="Enter confirm password"
+            placeholder=" nhập lại mật khẩu"
             required
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></input>

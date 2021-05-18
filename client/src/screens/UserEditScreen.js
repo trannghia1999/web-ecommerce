@@ -11,7 +11,7 @@ export default function UserEditScreen(props) {
   const userId = props.match.params.id;
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [isSeller, setIsSeller] = useState(false);
+  
   const [isAdmin, setIsAdmin] = useState(false);
 
   const userDetails = useSelector((state) => state.userDetails);
@@ -35,7 +35,7 @@ export default function UserEditScreen(props) {
     } else {
       setName(user.name);
       setEmail(user.email);
-      setIsSeller(user.isSeller);
+    
       setIsAdmin(user.isAdmin);
     }
   }, [dispatch, props.history, successUpdate, user, userId]);
@@ -43,7 +43,7 @@ export default function UserEditScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     // dispatch update user
-    dispatch(updateUser({ _id: userId, name, email, isSeller, isAdmin }));
+    dispatch(updateUser({ _id: userId, name, email, isAdmin }));
   };
   return (
     <div>
@@ -61,42 +61,13 @@ export default function UserEditScreen(props) {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <>
-            {/* <div>
-              <label htmlFor="name">Tên</label>
-              <input
-                id="name"
-                type="text"
-                placeholder="Enter name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              ></input>
-            </div> */}
-            {/* <div>
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              ></input>
-            </div> */}
-            {/* <div>
-              <label htmlFor="isSeller">Is Seller</label>
-              <input
-                id="isSeller"
-                type="checkbox"
-                checked={isSeller}
-                onChange={(e) => setIsSeller(e.target.checked)}
-              ></input>
-            </div> */}
+          
             <div>
               <label htmlFor="isAdmin"> Admin</label>
               <input
                 id="isAdmin"
                 type="checkbox"
-                // checked={isAdmin}
-                // onChange={(e) => setIsAdmin(e.target.checked)}
+               
               ></input>
             </div>
             <div>

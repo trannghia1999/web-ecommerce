@@ -16,7 +16,7 @@ import {
 export default function ProductListScreen(props) {
   const { pageNumber = 1 } = useParams();
 
-  const sellerMode = props.match.path.indexOf('/seller') >= 0;
+  
   const productList = useSelector((state) => state.productList);
   const { loading, error, products, page, pages } = productList;
 
@@ -45,14 +45,12 @@ export default function ProductListScreen(props) {
     if (successDelete) {
       dispatch({ type: PRODUCT_DELETE_RESET });
     }
-    dispatch(
-      listProducts({ seller: sellerMode ? userInfo._id : '', pageNumber })
-    );
+   
   }, [
     createdProduct,
     dispatch,
     props.history,
-    sellerMode,
+    
     successCreate,
     successDelete,
     userInfo._id,
