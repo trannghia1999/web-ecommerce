@@ -5,6 +5,7 @@ const SellerScreen = () => {
     <div>
       
     </div>
+    
   )
 }
 
